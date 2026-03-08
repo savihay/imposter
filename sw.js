@@ -1,4 +1,4 @@
-const CACHE_NAME = 'imposter-v2';
+const CACHE_NAME = 'imposter-v3';
 const ASSETS = [
     './',
     './index.html',
@@ -11,6 +11,7 @@ const ASSETS = [
     './topics/countries.json',
     './topics/professions.json',
     './topics/sports.json',
+    './topics/objects.json',
     './icons/icon-192.png',
     './icons/icon-512.png'
 ];

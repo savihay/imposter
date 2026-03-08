@@ -41,6 +41,8 @@ The hint should be:
 - Something that could have multiple interpretations
 - NOT a synonym or direct description
 
+> **CRITICAL**: The hint must **not share the same Hebrew root** as the secret word, and must not appear literally inside the word (e.g. if the word is `"קפיצה במוט"`, the hint cannot be `"מוט"`).
+
 **Good hints:**
 - `"כלב"` → `"עצם"` (related but not obvious)
 - `"נהג"` → `"הגה"` (associated object)
@@ -48,7 +50,10 @@ The hint should be:
 
 **Bad hints:**
 - `"כלב"` → `"חיית מחמד נאמנה"` (too long, multiple words)
-- `"כלב"` → `"כלבלב"` (too close to the word)
+- `"כלב"` → `"כלבלב"` (same root כ-ל-ב)
+- `"ספרן"` → `"ספריה"` (same root ס-פ-ר)
+- `"מחשבון"` → `"חישוב"` (same root ח-ש-ב)
+- `"קפיצה במוט"` → `"מוט"` (hint appears literally in the word)
 
 Aim for **15-20 words** per topic.
 
