@@ -40,8 +40,6 @@
         window.scrollTo(0, 0);
     }
 
-    // ===== Title Screen =====
-    // Splash screen runs automatically on init
 
     // ===== Setup Screen =====
     function renderSetup() {
