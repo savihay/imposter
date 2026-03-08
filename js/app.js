@@ -215,17 +215,29 @@
 
     // Press-and-hold to reveal: flip on press, unflip on release
     const revealCard = $('#reveal-card');
+    let revealTimer = null;
 
     function flipCard() {
         if (state.isTransitioning) return;
         revealCard.classList.add('flipped');
         state.hasRevealed = true;
-        // Show the next button once they've seen the card
-        $('#btn-next-player').classList.remove('hidden');
+        
+        if (!revealTimer) {
+            revealTimer = setTimeout(() => {
+                if (revealCard.classList.contains('flipped')) {
+                    $('#btn-next-player').classList.remove('hidden');
+                }
+                revealTimer = null;
+            }, 1000);
+        }
     }
 
     function unflipCard() {
         revealCard.classList.remove('flipped');
+        if (revealTimer) {
+            clearTimeout(revealTimer);
+            revealTimer = null;
+        }
     }
 
     // Mouse events
@@ -294,7 +306,7 @@
 
     // New game (back to title)
     $('#btn-new-game').addEventListener('click', () => {
-        state.selectedTopics = [];
+        state.selectedTopics = TopicsManager.getTopics().map(t => t.name);
         state.secretWord = null;
         state.imposterIndex = -1;
         state.firstPlayerIndex = -1;
@@ -308,6 +320,7 @@
     // ===== Initialization =====
     async function init() {
         await TopicsManager.loadTopics();
+        state.selectedTopics = TopicsManager.getTopics().map(t => t.name);
         console.log(`Loaded ${TopicsManager.getTopics().length} topics`);
     }
 

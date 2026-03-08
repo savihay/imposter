@@ -537,10 +537,12 @@ body {
 }
 
 .reveal-next-btn {
-    width: 100%;
-    padding: 16px;
+    width: fit-content;
+    min-width: 200px;
+    padding: 16px 32px;
     font-size: 1.1rem;
-    margin-bottom: 16px;
+    margin: 0 auto 16px auto;
+    display: flex;
 }
 
 /* ===== Game Start Screen ===== */
