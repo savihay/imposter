@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!Imposter - משחק המתחזה</title>
+    <meta name="description" content="משחק מסיבה מהנה - מצאו את המתחזה!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Title Screen -->
+    <section id="screen-title" class="screen active">
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-icon">🕵️</div>
+                <h1 class="logo-text">!Imposter</h1>
+                <p class="logo-subtitle">מצאו את המתחזה</p>
+            </div>
+            <button id="btn-start" class="btn btn-primary btn-glow">
+                <span>התחל משחק</span>
+                <span class="btn-icon">🎮</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Setup Screen -->
+    <section id="screen-setup" class="screen">
+        <div class="container">
+            <h2 class="screen-title">הגדרות משחק</h2>
+
+            <!-- Player Count -->
+            <div class="setup-card">
+                <h3 class="card-title">
+                    <span class="card-icon">👥</span>
+                    מספר שחקנים
+                </h3>
+                <div class="counter-control">
+                    <button id="btn-decrease" class="btn btn-counter">−</button>
+                    <span id="player-count" class="counter-value">4</span>
+                    <button id="btn-increase" class="btn btn-counter">+</button>
+                </div>
+            </div>
+
+            <!-- Player Names -->
+            <div class="setup-card">
+                <h3 class="card-title">
+                    <span class="card-icon">✏️</span>
+                    שמות שחקנים
+                    <span class="optional-badge">אופציונלי</span>
+                </h3>
+                <div id="player-names-container" class="player-names-grid">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
+
+            <!-- Topics -->
+            <div class="setup-card">
+                <h3 class="card-title">
+                    <span class="card-icon">📋</span>
+                    נושאים
+                </h3>
+                <div id="topics-container" class="topics-grid">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
+
+            <button id="btn-begin" class="btn btn-primary btn-glow" disabled>
+                <span>יאללה!</span>
+                <span class="btn-icon">🚀</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Word Reveal Screen -->
+    <section id="screen-reveal" class="screen">
+        <div class="container">
+            <h2 class="screen-title">גילוי מילים</h2>
+            <div id="reveal-card" class="reveal-card">
+                <div class="reveal-card-inner">
+                    <!-- Front: tap to reveal -->
+                    <div class="reveal-card-front">
+                        <div class="reveal-player-name" id="reveal-player-name"></div>
+                        <div class="reveal-tap-icon">👆</div>
+                        <p class="reveal-instruction">לחץ לגלות</p>
+                    </div>
+                    <!-- Back: the word or imposter message -->
+                    <div class="reveal-card-back">
+                        <div id="reveal-content" class="reveal-content"></div>
+                    </div>
+                </div>
+            </div>
+            <button id="btn-next-player" class="btn btn-primary hidden reveal-next-btn">
+                <span>השחקן הבא ➡️</span>
+            </button>
+            <div class="reveal-progress">
+                <span id="reveal-progress-text"></span>
+                <div class="progress-bar">
+                    <div id="reveal-progress-bar" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Start Screen (who starts + play in real life) -->
+    <section id="screen-gamestart" class="screen">
+        <div class="container">
+            <div class="gamestart-content">
+                <div class="gamestart-icon">🎯</div>
+                <h2 class="screen-title">המשחק מתחיל!</h2>
+                <div class="first-player-card">
+                    <p class="first-player-label">השחקן שמתחיל:</p>
+                    <p id="first-player-name" class="first-player-name"></p>
+                </div>
+                <div class="game-info-badges">
+                    <div class="info-badge">
+                        <span class="badge-icon">👥</span>
+                        <span id="info-players" class="badge-text"></span>
+                    </div>
+                </div>
+                <p class="gamestart-instruction">כל שחקן בתורו אומר מילה אחת שקשורה למילה הסודית.<br>אסור להגיד את המילה עצמה!<br>המתחזה צריך להתחמק ולהשתלב!<br><br>כשתסיימו לשחק — לחצו על הכפתור לחשוף את המתחזה 👇</p>
+                <button id="btn-reveal-imposter" class="btn btn-primary btn-glow">
+                    <span>חשפו את המתחזה! 🔍</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="screen-results" class="screen">
+        <div class="container">
+            <div class="results-content">
+                <div id="results-icon" class="results-icon">🕵️</div>
+                <h2 class="screen-title">החשיפה!</h2>
+                <div class="results-reveal">
+                    <div class="results-imposter-card">
+                        <p class="results-label">המתחזה היה:</p>
+                        <p id="results-imposter" class="results-imposter-name"></p>
+                    </div>
+                    <div class="results-word-card">
+                        <p class="results-label">המילה הסודית:</p>
+                        <p id="results-word" class="results-secret-word"></p>
+                    </div>
+                    <div class="results-hint-card">
+                        <p class="results-label">הרמז שהמתחזה קיבל:</p>
+                        <p id="results-hint" class="results-hint-word"></p>
+                    </div>
+                </div>
+                <div class="results-buttons">
+                    <button id="btn-play-again" class="btn btn-primary btn-glow">
+                        <span>שחקו שוב!</span>
+                        <span class="btn-icon">🔄</span>
+                    </button>
+                    <button id="btn-new-game" class="btn btn-secondary">
+                        <span>משחק חדש</span>
+                        <span class="btn-icon">🏠</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/topics.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
