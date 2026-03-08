@@ -1,31 +1,31 @@
 /* ===== CSS Variables & Reset ===== */
 :root {
-    --bg-primary: #0f0f1a;
-    --bg-secondary: #1a1a2e;
-    --bg-card: rgba(30, 30, 60, 0.7);
-    --bg-card-hover: rgba(40, 40, 80, 0.8);
-    --text-primary: #f0f0f5;
-    --text-secondary: #a0a0c0;
-    --text-muted: #6060a0;
-    --accent-primary: #6c5ce7;
-    --accent-secondary: #a855f7;
-    --accent-gradient: linear-gradient(135deg, #6c5ce7, #a855f7);
-    --accent-glow: rgba(108, 92, 231, 0.4);
-    --success: #00c851;
-    --danger: #ff4757;
-    --warning: #ffa502;
-    --border-color: rgba(108, 92, 231, 0.2);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-primary: #faf8f5;
+    --bg-secondary: #f0ece6;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: rgba(240, 248, 255, 0.9);
+    --text-primary: #2c3e50;
+    --text-secondary: #5a7a9b;
+    --text-muted: #94b3cc;
+    --accent-primary: #5ba4d9;
+    --accent-secondary: #7ec8e3;
+    --accent-gradient: linear-gradient(135deg, #5ba4d9, #7ec8e3);
+    --accent-glow: rgba(91, 164, 217, 0.25);
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --warning: #e67e22;
+    --border-color: rgba(91, 164, 217, 0.2);
+    --glass-bg: rgba(91, 164, 217, 0.06);
+    --glass-border: rgba(91, 164, 217, 0.15);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
     --font-family: 'Rubik', sans-serif;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
-    --shadow-glow: 0 0 30px var(--accent-glow);
+    --shadow-sm: 0 2px 8px rgba(44, 62, 80, 0.06);
+    --shadow-md: 0 4px 20px rgba(44, 62, 80, 0.08);
+    --shadow-lg: 0 8px 40px rgba(44, 62, 80, 0.1);
+    --shadow-glow: 0 4px 20px var(--accent-glow);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -49,9 +49,9 @@ body {
     overflow-x: hidden;
     direction: rtl;
     background-image:
-        radial-gradient(ellipse at 20% 50%, rgba(108, 92, 231, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 100%, rgba(108, 92, 231, 0.05) 0%, transparent 40%);
+        radial-gradient(ellipse at 20% 50%, rgba(91, 164, 217, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(126, 200, 227, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(91, 164, 217, 0.04) 0%, transparent 40%);
 }
 
 /* ===== Screens ===== */
