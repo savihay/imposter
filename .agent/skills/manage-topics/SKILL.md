@@ -9,7 +9,7 @@ Topics are the word lists used in the Imposter! game. Each topic is a separate J
 
 ## Topic File Format
 
-Each topic file follows this exact JSON structure:
+Each topic file follows this exact JSON structure. **CRITICAL**: Each word/hint pair MUST be formatted on a single line.
 
 ```json
 {
@@ -34,25 +34,30 @@ Each topic file follows this exact JSON structure:
 
 ### Hint Rules
 
-> **CRITICAL**: Each hint must be exactly **one word** in Hebrew.
+> **CRITICAL**: Each hint must be exactly **one word**, and it must be a **NOUN** (not a verb, adjective, or action).
 
 The hint should be:
-- **Related** to the secret word, but **not too obviously**
-- Something that could have multiple interpretations
-- NOT a synonym or direct description
+- **A pure noun** representing an associated object, concept, or setting.
+- **Related** to the secret word, but **not too obviously**.
+- **NOT** an adjective (like "מהיר" or "אדום").
+- **NOT** a verb (like "יורק" or "מדביק").
+- Something that could have multiple interpretations.
+- NOT a synonym or direct description.
 
-> **CRITICAL**: The hint must **not share the same Hebrew root** as the secret word, and must not appear literally inside the word (e.g. if the word is `"קפיצה במוט"`, the hint cannot be `"מוט"`).
+> **CRITICAL**: The hint must **not share the same Hebrew root** as the secret word (e.g. `ספר` and `מספריים`), and must **not appear literally as a substring** inside the word (e.g. `דיו` for `דיונון` or `מים` for `כדורמים`).
 
-**Good hints:**
-- `"כלב"` → `"עצם"` (related but not obvious)
+**Good hints (Nouns):**
+- `"כלב"` → `"עצם"` (related object)
 - `"נהג"` → `"הגה"` (associated object)
 - `"פיצה"` → `"תנור"` (where it's made)
 
 **Bad hints:**
 - `"כלב"` → `"חיית מחמד נאמנה"` (too long, multiple words)
+- `"שועל"` → `"ערמומי"` (Adjective! Must be a noun)
+- `"לאמה"` → `"יורק"` (Verb! Must be a noun)
 - `"כלב"` → `"כלבלב"` (same root כ-ל-ב)
-- `"ספרן"` → `"ספריה"` (same root ס-פ-ר)
-- `"מחשבון"` → `"חישוב"` (same root ח-ש-ב)
+- `"ספר"` → `"מספריים"` (same root ס-פ-ר)
+- `"דיונון"` → `"דיו"` (substring of the word!)
 - `"קפיצה במוט"` → `"מוט"` (hint appears literally in the word)
 
 Aim for **15-20 words** per topic.
