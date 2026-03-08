@@ -711,7 +711,7 @@ body {
 
 /* ===== Utility ===== */
 .hidden {
-    display: none !important;
+    visibility: hidden !important;
 }
 
 /* ===== Responsive ===== */

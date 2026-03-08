@@ -41,10 +41,7 @@
     }
 
     // ===== Title Screen =====
-    $('#btn-start').addEventListener('click', () => {
-        showScreen('setup');
-        renderSetup();
-    });
+    // Splash screen runs automatically on init
 
     // ===== Setup Screen =====
     function renderSetup() {
@@ -228,7 +225,7 @@
                     $('#btn-next-player').classList.remove('hidden');
                 }
                 revealTimer = null;
-            }, 1000);
+            }, 500);
         }
     }
 
@@ -322,6 +319,18 @@
         await TopicsManager.loadTopics();
         state.selectedTopics = TopicsManager.getTopics().map(t => t.name);
         console.log(`Loaded ${TopicsManager.getTopics().length} topics`);
+
+        setTimeout(() => {
+            const titleScreen = $('#screen-title');
+            titleScreen.style.transition = 'opacity 0.5s ease';
+            titleScreen.style.opacity = '0';
+            setTimeout(() => {
+                showScreen('setup');
+                renderSetup();
+                titleScreen.style.opacity = '1';
+                titleScreen.style.transition = '';
+            }, 500);
+        }, 2000);
     }
 
     init();
